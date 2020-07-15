@@ -8,10 +8,10 @@ using System.Web.Http;
 
 namespace TayDuKy.Controllers
 {
-    public class LoginController : ApiController
+    public class AppController : ApiController
     {
         DataSource db = new DataSource();
-        // GET api/login/
+
         [HttpPost]
         public HttpResponseMessage loginAdmin(string email, string password)
         {
@@ -24,10 +24,11 @@ namespace TayDuKy.Controllers
         }
 
         [HttpPost]
-        public Boolean loginAdmin(string id, string name, string image, string desc, string quantity, string status)
+        public Boolean addNewProps(string id, string name, string image, string desc, string quantity, string status)
         {
             bool result = db.AddNewProps(id, name, image, desc, quantity, status);
             return result;
         }
+
     }
 }
