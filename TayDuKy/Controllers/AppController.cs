@@ -30,5 +30,11 @@ namespace TayDuKy.Controllers
             return result;
         }
 
+        [HttpPost]
+        public Boolean addNewCaster(string id, string password, string name, string image, string desc, string phone, string email, string status)
+        {
+            bool result = db.AddNewCaster(id, password, name, image, desc, phone, email, status);
+            return result;
+        }
     }
 }
