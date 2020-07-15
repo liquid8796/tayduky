@@ -36,5 +36,12 @@ namespace TayDuKy.Controllers
             bool result = db.AddNewCaster(id, password, name, image, desc, phone, email, status);
             return result;
         }
+
+        [HttpPost]
+        public Boolean addNewKiepnan(string id, string name, string desc, string location, string start, string end, string record, string status)
+        {
+            bool result = db.AddNewKiepnan(id, name, desc, location, start, end, record, status);
+            return result;
+        }
     }
 }

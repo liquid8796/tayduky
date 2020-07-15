@@ -97,5 +97,33 @@ namespace Database
             }
             return result;
         }
+        public bool AddNewKiepnan(string id, string name, string desc, string location, string startTime, string endTime, string numRecord, string status)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "insert Caster values(@ID,@Name,@Desc,@Location,@Start,@End,@Num,@Status)";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@Name", name);
+            cmd.Parameters.AddWithValue("@Desc", desc);
+            cmd.Parameters.AddWithValue("@Location", location);
+            cmd.Parameters.AddWithValue("@Start", startTime);
+            cmd.Parameters.AddWithValue("@End", endTime);
+            cmd.Parameters.AddWithValue("@Num", numRecord);
+            cmd.Parameters.AddWithValue("@Status", status);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
     }
 }
