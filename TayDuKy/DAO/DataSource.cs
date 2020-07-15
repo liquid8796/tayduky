@@ -73,7 +73,7 @@ namespace Database
         {
             bool result;
             SqlConnection cnn = new SqlConnection(strConnection);
-            string SQL = "insert Props values(@ID,@Pass,@Name,@Image,@Desc,@Phone,@Email,@status)";
+            string SQL = "insert Caster values(@ID,@Pass,@Name,@Image,@Desc,@Phone,@Email,@Status)";
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@ID", id);
             cmd.Parameters.AddWithValue("@Pass", password);
