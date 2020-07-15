@@ -22,5 +22,12 @@ namespace TayDuKy.Controllers
             }
             return Request.CreateResponse<string>(HttpStatusCode.BadRequest, "error");
         }
+
+        [HttpPost]
+        public Boolean loginAdmin(string id, string name, string image, string desc, string quantity, string status)
+        {
+            bool result = db.AddNewProps(id, name, image, desc, quantity, status);
+            return result;
+        }
     }
 }
