@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TayDuKy.DAO;
 
 namespace TayDuKy.Controllers
 {
@@ -41,6 +42,27 @@ namespace TayDuKy.Controllers
         public Boolean addNewKiepnan(string id, string name, string desc, string location, string start, string end, string record, string status)
         {
             bool result = db.AddNewKiepnan(id, name, desc, location, start, end, record, status);
+            return result;
+        }
+
+        [HttpGet]
+        public List<Kiepnan> listKiepnan()
+        {
+            List<Kiepnan> result = db.getAllKiepnan();
+            return result;
+        }
+
+        [HttpGet]
+        public List<Caster> listCaster()
+        {
+            List<Caster> result = db.getAllCaster();
+            return result;
+        }
+
+        [HttpGet]
+        public List<Props> listProps()
+        {
+            List<Props> result = db.getAllProps();
             return result;
         }
     }

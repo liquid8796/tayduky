@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using TayDuKy.DAO;
 
 namespace Database
 {
@@ -118,6 +119,103 @@ namespace Database
                     cnn.Open();
                 }
                 result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public List<Kiepnan> getAllKiepnan()
+        {
+            List<Kiepnan> result = new List<Kiepnan>();
+            string SQL = "select * from Misery";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Kiepnan tmp = new Kiepnan
+                    {
+                        id = reader.GetValue(0).ToString(),
+                        name = reader.GetValue(1).ToString(),
+                        desc = reader.GetValue(2).ToString(),
+                        location = reader.GetValue(3).ToString(),
+                        start = reader.GetValue(4).ToString(),
+                        end = reader.GetValue(5).ToString(),
+                        record = reader.GetValue(6).ToString(),
+                        status = reader.GetValue(7).ToString(),
+                    };
+                    result.Add(tmp);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public List<Caster> getAllCaster()
+        {
+            List<Caster> result = new List<Caster>();
+            string SQL = "select * from Caster";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Caster tmp = new Caster
+                    {
+                        id = reader.GetValue(0).ToString(),
+                        password = reader.GetValue(1).ToString(),
+                        name = reader.GetValue(2).ToString(),
+                        image = reader.GetValue(3).ToString(),
+                        desc = reader.GetValue(4).ToString(),
+                        phone = reader.GetValue(5).ToString(),
+                        email = reader.GetValue(6).ToString(),
+                        status = reader.GetValue(7).ToString(),
+                    };
+                    result.Add(tmp);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public List<Props> getAllProps()
+        {
+            List<Props> result = new List<Props>();
+            string SQL = "select * from Props";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Props tmp = new Props
+                    {
+                        id = reader.GetValue(0).ToString(),
+                        name = reader.GetValue(1).ToString(),
+                        image = reader.GetValue(2).ToString(),
+                        desc = reader.GetValue(3).ToString(),
+                        quantity = reader.GetValue(4).ToString(),
+                        status = reader.GetValue(5).ToString(),
+                    };
+                    result.Add(tmp);
+                }
             }
             catch (SqlException ex)
             {
