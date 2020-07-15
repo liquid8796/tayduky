@@ -101,7 +101,7 @@ namespace Database
         {
             bool result;
             SqlConnection cnn = new SqlConnection(strConnection);
-            string SQL = "insert Caster values(@ID,@Name,@Desc,@Location,@Start,@End,@Num,@Status)";
+            string SQL = "insert Misery values(@ID,@Name,@Desc,@Location,@Start,@End,@Num,@Status)";
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@ID", id);
             cmd.Parameters.AddWithValue("@Name", name);
