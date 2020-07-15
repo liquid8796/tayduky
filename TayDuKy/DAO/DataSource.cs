@@ -69,7 +69,7 @@ namespace Database
             }
             return result;
         }
-        /*public bool AddNewCaster(string id, string password, string name, string image, string desc, string phone, string email, string status)
+        public bool AddNewCaster(string id, string password, string name, string image, string desc, string phone, string email, string status)
         {
             bool result;
             SqlConnection cnn = new SqlConnection(strConnection);
@@ -96,6 +96,6 @@ namespace Database
                 throw new Exception(ex.Message);
             }
             return result;
-        }*/
+        }
     }
 }
