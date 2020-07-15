@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulAPI", "RestfulAPI\RestfulAPI.csproj", "{D6D73500-6461-4178-B8E6-B9CEA78BDE7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TayDuKy", "TayDuKy\TayDuKy.csproj", "{B71FF226-8B17-44B9-BE2B-C64D83D7C167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{7082430D-D092-4AA3-958D-2C57A1305510}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6D73500-6461-4178-B8E6-B9CEA78BDE7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D73500-6461-4178-B8E6-B9CEA78BDE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D73500-6461-4178-B8E6-B9CEA78BDE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D73500-6461-4178-B8E6-B9CEA78BDE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B71FF226-8B17-44B9-BE2B-C64D83D7C167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B71FF226-8B17-44B9-BE2B-C64D83D7C167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B71FF226-8B17-44B9-BE2B-C64D83D7C167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B71FF226-8B17-44B9-BE2B-C64D83D7C167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7082430D-D092-4AA3-958D-2C57A1305510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7082430D-D092-4AA3-958D-2C57A1305510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7082430D-D092-4AA3-958D-2C57A1305510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7082430D-D092-4AA3-958D-2C57A1305510}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77557D2C-4A01-4F0C-A970-F8A709C4065D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+C:\Users\Liquid\source\repos\WebApplication1\Database\bin\Debug\Database.dll
+C:\Users\Liquid\source\repos\WebApplication1\Database\bin\Debug\Database.pdb
+C:\Users\Liquid\source\repos\WebApplication1\Database\obj\Debug\Database.csprojAssemblyReference.cache
+C:\Users\Liquid\source\repos\WebApplication1\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
+C:\Users\Liquid\source\repos\WebApplication1\Database\obj\Debug\Database.dll
+C:\Users\Liquid\source\repos\WebApplication1\Database\obj\Debug\Database.pdb
