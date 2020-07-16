@@ -104,5 +104,17 @@ namespace TayDuKy.Controllers
         {
             return db.DeleteProps(id);
         }
+
+        [HttpPost]
+        public Boolean addNewCasterCart(string id, string casterId, string role, string roleDesc, string miseryId)
+        {
+            return db.AddNewCasterCart(id, casterId, role, roleDesc, miseryId);
+        }
+
+        [HttpPost]
+        public Boolean addNewPropsCart(string id, string propsId, string quantity, string miseryId)
+        {
+            return db.AddNewPropsCart(id, propsId, quantity, miseryId);
+        }
     }
 }
