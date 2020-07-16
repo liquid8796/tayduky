@@ -196,9 +196,10 @@ namespace Database
         public List<Props> getAllProps()
         {
             List<Props> result = new List<Props>();
-            string SQL = "select * from Props";
+            string SQL = "select * from Props where status=@Status";
             SqlConnection cnn = new SqlConnection(strConnection);
             SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@Status", "available");
             try
             {
                 cnn.Open();
