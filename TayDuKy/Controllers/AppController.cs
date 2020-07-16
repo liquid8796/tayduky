@@ -86,5 +86,23 @@ namespace TayDuKy.Controllers
             Props props = new Props(id, name, image, desc, quantity, status);
             return db.UpdateProps(props);
         }
+
+        [HttpDelete]
+        public bool deleteKiepnan(String id)
+        {
+            return db.DeleteMisery(id);
+        }
+
+        [HttpDelete]
+        public bool deleteCaster(String id)
+        {
+            return db.DeleteCaster(id);
+        }
+
+        [HttpDelete]
+        public bool deleteProps(String id)
+        {
+            return db.DeleteProps(id);
+        }
     }
 }
