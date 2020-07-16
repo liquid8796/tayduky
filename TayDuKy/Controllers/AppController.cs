@@ -65,5 +65,26 @@ namespace TayDuKy.Controllers
             List<Props> result = db.getAllProps();
             return result;
         }
+
+        [HttpPut]
+        public bool updateKiepnan(string id, string name, string desc, string location, string start, string end, string record, string status)
+        {
+            Kiepnan kiepnan = new Kiepnan(id, name, desc, location, start, end, record, status);
+            return db.UpdateMisery(kiepnan);
+        }
+
+        [HttpPut]
+        public bool updateCaster(string id, string password, string name, string image, string desc, string phone, string email, string status)
+        {
+            Caster caster = new Caster(id, password, name, image, desc, phone, email, status);
+            return db.UpdateCaster(caster);
+        }
+
+        [HttpPut]
+        public bool updateProps(string id, string name, string image, string desc, string quantity, string status)
+        {
+            Props props = new Props(id, name, image, desc, quantity, status);
+            return db.UpdateProps(props);
+        }
     }
 }

@@ -223,5 +223,132 @@ namespace Database
             }
             return result;
         }
+
+        public bool UpdateMisery(Kiepnan kiepnan)
+        {
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "update Misery set name=@Name,description=@Desc,location=@Location,startTime=@Start,endTime=@End,numRecord=@Record,status=@Status where id=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", kiepnan.id);
+            cmd.Parameters.AddWithValue("@Name", kiepnan.name);
+            cmd.Parameters.AddWithValue("@Desc", kiepnan.desc);
+            cmd.Parameters.AddWithValue("@Location", kiepnan.location);
+            cmd.Parameters.AddWithValue("@Start", kiepnan.start);
+            cmd.Parameters.AddWithValue("@End", kiepnan.end);
+            cmd.Parameters.AddWithValue("@Record", kiepnan.record);
+            cmd.Parameters.AddWithValue("@Status", kiepnan.status);
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            int count = cmd.ExecuteNonQuery();
+            return (count > 0);
+        }
+
+        public bool UpdateCaster(Caster caster)
+        {
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "update Caster set password=@Password,name=@Name,image=@Image,description=@Desc,phoneNo=@Phone,email=@Email,status=@Status where id=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", caster.id);
+            cmd.Parameters.AddWithValue("@Password", caster.password);
+            cmd.Parameters.AddWithValue("@Name", caster.name);
+            cmd.Parameters.AddWithValue("@Image", caster.image);
+            cmd.Parameters.AddWithValue("@Desc", caster.desc);
+            cmd.Parameters.AddWithValue("@Phone", caster.phone);
+            cmd.Parameters.AddWithValue("@Email", caster.email);
+            cmd.Parameters.AddWithValue("@Status", caster.status);
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            int count = cmd.ExecuteNonQuery();
+            return (count > 0);
+        }
+
+        public bool UpdateProps(Props props)
+        {
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "update Props set name=@Name,image=@Image,description=@Desc,quantity=@Quantity,status=@Status where id=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", props.id);
+            cmd.Parameters.AddWithValue("@Name", props.name);
+            cmd.Parameters.AddWithValue("@Image", props.image);
+            cmd.Parameters.AddWithValue("@Desc", props.desc);
+            cmd.Parameters.AddWithValue("@Quantity", props.quantity);
+            cmd.Parameters.AddWithValue("@Status", props.status);
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            int count = cmd.ExecuteNonQuery();
+            return (count > 0);
+        }
+
+        public bool DeleteMisery(string id)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "delete Misery where id=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public bool DeleteCaster(string id)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "delete Caster where id=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public bool DeleteProps(string id)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "delete Props where id=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
     }
 }
