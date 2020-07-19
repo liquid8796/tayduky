@@ -106,15 +106,15 @@ namespace TayDuKy.Controllers
         }
 
         [HttpPost]
-        public Boolean addNewCasterCart(string id, string casterId, string role, string roleDesc, string miseryId)
+        public Boolean addNewCasterCart(string casterId, string role, string roleDesc, string miseryId)
         {
-            return db.AddNewCasterCart(id, casterId, role, roleDesc, miseryId);
+            return db.AddNewCasterCart(casterId, role, roleDesc, miseryId);
         }
 
         [HttpPost]
-        public Boolean addNewPropsCart(string id, string propsId, string quantity, string miseryId)
+        public Boolean addNewPropsCart(string propsId, string quantity, string miseryId)
         {
-            return db.AddNewPropsCart(id, propsId, quantity, miseryId);
+            return db.AddNewPropsCart(propsId, quantity, miseryId);
         }
     }
 }
