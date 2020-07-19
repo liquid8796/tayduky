@@ -178,11 +178,12 @@ namespace Database
                         id = reader.GetValue(0).ToString(),
                         password = reader.GetValue(1).ToString(),
                         name = reader.GetValue(2).ToString(),
-                        image = reader.GetValue(3).ToString(),
-                        desc = reader.GetValue(4).ToString(),
-                        phone = reader.GetValue(5).ToString(),
-                        email = reader.GetValue(6).ToString(),
-                        status = reader.GetValue(7).ToString(),
+                        sex = reader.GetValue(3).ToString(),
+                        image = reader.GetValue(4).ToString(),
+                        desc = reader.GetValue(5).ToString(),
+                        phone = reader.GetValue(6).ToString(),
+                        email = reader.GetValue(7).ToString(),
+                        status = reader.GetValue(8).ToString(),
                     };
                     result.Add(tmp);
                 }
