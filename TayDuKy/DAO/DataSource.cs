@@ -70,15 +70,16 @@ namespace Database
             }
             return result;
         }
-        public bool AddNewCaster(string id, string password, string name, string image, string desc, string phone, string email, string status)
+        public bool AddNewCaster(string id, string password, string name, string sex, string image, string desc, string phone, string email, string status)
         {
             bool result;
             SqlConnection cnn = new SqlConnection(strConnection);
-            string SQL = "insert Caster values(@ID,@Pass,@Name,@Image,@Desc,@Phone,@Email,@Status)";
+            string SQL = "insert Caster values(@ID,@Pass,@Name,@Sex,@Image,@Desc,@Phone,@Email,@Status)";
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@ID", id);
             cmd.Parameters.AddWithValue("@Pass", password);
             cmd.Parameters.AddWithValue("@Name", name);
+            cmd.Parameters.AddWithValue("@Sex", sex);
             cmd.Parameters.AddWithValue("@Image", image);
             cmd.Parameters.AddWithValue("@Desc", desc);
             cmd.Parameters.AddWithValue("@Phone", phone);
@@ -249,11 +250,12 @@ namespace Database
         public bool UpdateCaster(Caster caster)
         {
             SqlConnection cnn = new SqlConnection(strConnection);
-            string SQL = "update Caster set password=@Password,name=@Name,image=@Image,description=@Desc,phoneNo=@Phone,email=@Email,status=@Status where id=@ID";
+            string SQL = "update Caster set password=@Password,name=@Name,sex=@Sex,image=@Image,description=@Desc,phoneNo=@Phone,email=@Email,status=@Status where id=@ID";
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@ID", caster.id);
             cmd.Parameters.AddWithValue("@Password", caster.password);
             cmd.Parameters.AddWithValue("@Name", caster.name);
+            cmd.Parameters.AddWithValue("@Sex", caster.sex);
             cmd.Parameters.AddWithValue("@Image", caster.image);
             cmd.Parameters.AddWithValue("@Desc", caster.desc);
             cmd.Parameters.AddWithValue("@Phone", caster.phone);

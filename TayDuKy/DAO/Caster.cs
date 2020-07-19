@@ -10,6 +10,7 @@ namespace TayDuKy.DAO
         public String id { get; set; }
         public String password { get; set; }
         public String name { get; set; }
+        public String sex { get; set; }
         public String image { get; set; }
         public String desc { get; set; }
         public String phone { get; set; }
@@ -22,6 +23,7 @@ namespace TayDuKy.DAO
             this.id = id;
             this.password = password;
             this.name = name;
+            this.sex = sex;
             this.image = image;
             this.desc = desc;
             this.phone = phone;

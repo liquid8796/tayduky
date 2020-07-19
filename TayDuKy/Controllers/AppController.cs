@@ -32,9 +32,9 @@ namespace TayDuKy.Controllers
         }
 
         [HttpPost]
-        public Boolean addNewCaster(string id, string password, string name, string image, string desc, string phone, string email, string status)
+        public Boolean addNewCaster(string id, string password, string name, string sex, string image, string desc, string phone, string email, string status)
         {
-            bool result = db.AddNewCaster(id, password, name, image, desc, phone, email, status);
+            bool result = db.AddNewCaster(id, password, name, sex, image, desc, phone, email, status);
             return result;
         }
 
@@ -74,9 +74,9 @@ namespace TayDuKy.Controllers
         }
 
         [HttpPut]
-        public bool updateCaster(string id, string password, string name, string image, string desc, string phone, string email, string status)
+        public bool updateCaster(string id, string password, string name, string sex, string image, string desc, string phone, string email, string status)
         {
-            Caster caster = new Caster(id, password, name, image, desc, phone, email, status);
+            Caster caster = new Caster(id, password, name, sex, image, desc, phone, email, status);
             return db.UpdateCaster(caster);
         }
 
