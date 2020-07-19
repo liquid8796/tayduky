@@ -18,7 +18,7 @@ namespace TayDuKy.DAO
         public String status { get; set; }
         public Caster() { }
 
-        public Caster(string id, string password, string name, string image, string desc, string phone, string email, string status)
+        public Caster(string id, string password, string name, string sex, string image, string desc, string phone, string email, string status)
         {
             this.id = id;
             this.password = password;
