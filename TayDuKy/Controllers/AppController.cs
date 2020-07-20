@@ -112,7 +112,7 @@ namespace TayDuKy.Controllers
             return db.AddNewCasterCart(casterId, role, roleDesc, miseryId);
         }
 
-        [HttpPost]
+        [HttpPut]
         public Boolean updateQttProps(string id, string qttLeft)
         {
             return db.UpdateQttProps(id, qttLeft);
