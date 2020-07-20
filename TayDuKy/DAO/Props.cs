@@ -12,6 +12,7 @@ namespace TayDuKy.DAO
         public String image { get; set; }
         public String desc { get; set; }
         public String quantity { get; set; }
+        public String ins_date { get; set; }
         public String status { get; set; }
         public Props() { }
 

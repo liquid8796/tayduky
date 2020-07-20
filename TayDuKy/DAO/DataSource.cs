@@ -48,13 +48,14 @@ namespace Database
         {
             bool result;
             SqlConnection cnn = new SqlConnection(strConnection);
-            string SQL = "insert Props values(@ID,@Name,@Image,@Desc,@Quantity,@Status)";
+            string SQL = "insert Props values(@ID,@Name,@Image,@Desc,@Quantity,@Ins_date,@Status)";
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@ID", id);
             cmd.Parameters.AddWithValue("@Name", name);
             cmd.Parameters.AddWithValue("@Image", image);
             cmd.Parameters.AddWithValue("@Desc", desc);
             cmd.Parameters.AddWithValue("@Quantity", quantity);
+            cmd.Parameters.AddWithValue("@Ins_date", DateTime.Now);
             cmd.Parameters.AddWithValue("@Status", status);
             try
             {
@@ -198,7 +199,7 @@ namespace Database
         public List<Props> getAllProps()
         {
             List<Props> result = new List<Props>();
-            string SQL = "select * from Props where status=@Status";
+            string SQL = "select * from Props where status=@Status order by ins_date asc";
             SqlConnection cnn = new SqlConnection(strConnection);
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@Status", "available");
@@ -215,7 +216,8 @@ namespace Database
                         image = reader.GetValue(2).ToString(),
                         desc = reader.GetValue(3).ToString(),
                         quantity = reader.GetValue(4).ToString(),
-                        status = reader.GetValue(5).ToString(),
+                        ins_date = reader.GetValue(5).ToString(),
+                        status = reader.GetValue(6).ToString(),
                     };
                     result.Add(tmp);
                 }
