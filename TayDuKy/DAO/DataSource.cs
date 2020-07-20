@@ -586,7 +586,7 @@ namespace Database
         {
             bool result;
             SqlConnection cnn = new SqlConnection(strConnection);
-            string SQL = "insert updateCasterDetail values(@AdminId,@CasterId,@Date";
+            string SQL = "insert updateCasterDetail values(@AdminId,@CasterId,@Date)";
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             cmd.Parameters.AddWithValue("@AdminId", adminId);
             cmd.Parameters.AddWithValue("@CasterId", casterId);
