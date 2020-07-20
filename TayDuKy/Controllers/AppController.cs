@@ -116,7 +116,7 @@ namespace TayDuKy.Controllers
         public Boolean addNewPropsCart(string propsId, string quantity, string miseryId)
         {
             int quantityProps = db.getQttProps(propsId);
-            if(quantityProps > Int32.Parse(quantity))
+            if(quantityProps > int.Parse(quantity))
             {
                 return db.AddNewPropsCart(propsId, quantity, miseryId);
             }
