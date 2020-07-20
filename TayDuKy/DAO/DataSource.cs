@@ -582,6 +582,29 @@ namespace Database
             return quantity;
         }
 
+        public String GetIdAdmin(string name)
+        {
+            string id = "";
+            string SQL = "select id from Admin where name=@Name";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@Name", name);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    id = reader.GetValue(2).ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return id;
+        }
+
         public bool AddInfoUpdate(String adminId, string casterId)
         {
             bool result;

@@ -135,6 +135,12 @@ namespace TayDuKy.Controllers
         }
 
         [HttpGet]
+        public String getIdAdmin(string name)
+        {
+            return db.GetIdAdmin(name);
+        }
+
+        [HttpGet]
         public List<History> listHistory()
         {
             List<History> result = db.getAllHistory();
