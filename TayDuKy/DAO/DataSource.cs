@@ -581,5 +581,58 @@ namespace Database
             }
             return quantity;
         }
+
+        public bool AddInfoUpdate(String adminId, string casterId)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "insert updateCasterDetail values(@AdminId,@CasterId,@Date";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@AdminId", adminId);
+            cmd.Parameters.AddWithValue("@CasterId", casterId);
+            cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public List<History> getAllHistory()
+        {
+            List<History> result = new List<History>();
+            string SQL = "select * from updateCasterDetail";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    History tmp = new History
+                    {
+                        id = reader.GetValue(0).ToString(),
+                        adminId = reader.GetValue(1).ToString(),
+                        casterId = reader.GetValue(2).ToString(),
+                        update_time = reader.GetValue(3).ToString(),
+                    };
+                    result.Add(tmp);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
     }
 }

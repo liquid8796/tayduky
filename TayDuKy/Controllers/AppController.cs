@@ -127,5 +127,18 @@ namespace TayDuKy.Controllers
         {
             return db.AddNewPropsCart(propsId, quantity, miseryId);
         }
+
+        [HttpPost]
+        public Boolean addInfoUpdate(string adminId, string casterId)
+        {
+            return db.AddInfoUpdate(adminId, casterId);
+        }
+
+        [HttpGet]
+        public List<History> listHistory()
+        {
+            List<History> result = db.getAllHistory();
+            return result;
+        }
     }
 }

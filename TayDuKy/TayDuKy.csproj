@@ -160,6 +160,7 @@
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="DAO\Caster.cs" />
     <Compile Include="DAO\DataSource.cs" />
+    <Compile Include="DAO\History.cs" />
     <Compile Include="DAO\Kiepnan.cs" />
     <Compile Include="DAO\Props.cs" />
     <Compile Include="Global.asax.cs">
