@@ -341,6 +341,21 @@ namespace Database
             return (count > 0);
         }
 
+        public bool UpdateQttProps(String id, string qttLeft)
+        {
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "update Props set quantity=@Quantity where id=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@Quantity", qttLeft);
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            int count = cmd.ExecuteNonQuery();
+            return (count > 0);
+        }
+
         public bool DeleteMisery(string id)
         {
             bool result;
@@ -406,6 +421,8 @@ namespace Database
             }
             return result;
         }
+
+
 
         public bool AddNewCasterCart(string casterId, string role, string roleDesc, string miseryId)
         {

@@ -113,9 +113,9 @@ namespace TayDuKy.Controllers
         }
 
         [HttpPost]
-        public int getQttProps(string id)
+        public Boolean updateQttProps(string id, string qttLeft)
         {
-            return db.getQttProps(id);
+            return db.UpdateQttProps(id, qttLeft);
         }
 
         [HttpPost]
