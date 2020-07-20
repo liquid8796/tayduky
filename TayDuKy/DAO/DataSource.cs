@@ -455,5 +455,28 @@ namespace Database
             }
             return result;
         }
+
+        public int getQttProps(string id)
+        {
+            int quantity = 0;
+            string SQL = "select quantity from Props where id=@ID";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    quantity = reader.GetInt32(4);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return quantity;
+        }
     }
 }

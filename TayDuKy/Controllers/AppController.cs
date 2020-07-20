@@ -1,6 +1,7 @@
 ﻿using Database;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -114,7 +115,12 @@ namespace TayDuKy.Controllers
         [HttpPost]
         public Boolean addNewPropsCart(string propsId, string quantity, string miseryId)
         {
-            return db.AddNewPropsCart(propsId, quantity, miseryId);
+            int quantityProps = db.getQttProps(propsId);
+            if(quantityProps > Int32.Parse(quantity))
+            {
+                return db.AddNewPropsCart(propsId, quantity, miseryId);
+            }
+            return false;
         }
     }
 }
