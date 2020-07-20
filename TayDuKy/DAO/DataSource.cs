@@ -378,6 +378,50 @@ namespace Database
             return result;
         }
 
+        public bool DeleteCasterInMisery(string miseryId)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "delete CasterCartDetail where miseryId=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", miseryId);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+        public bool DeletePropsInMisery(string miseryId)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "delete PropsCartDetail where miseryId=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", miseryId);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
         public bool DeleteCaster(string id)
         {
             bool result;
@@ -422,7 +466,49 @@ namespace Database
             return result;
         }
 
+        public bool DeleteCasterCart(string casterId)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "delete CasterCartDetail where casterId=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", casterId);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
 
+        public bool DeletePropsCart(string propsId)
+        {
+            bool result;
+            SqlConnection cnn = new SqlConnection(strConnection);
+            string SQL = "delete PropsCartDetail where propsId=@ID";
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", propsId);
+            try
+            {
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
 
         public bool AddNewCasterCart(string casterId, string role, string roleDesc, string miseryId)
         {

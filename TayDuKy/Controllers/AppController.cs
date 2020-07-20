@@ -91,18 +91,22 @@ namespace TayDuKy.Controllers
         [HttpDelete]
         public bool deleteKiepnan(String id)
         {
+            db.DeleteCasterInMisery(id);
+            db.DeletePropsInMisery(id);
             return db.DeleteMisery(id);
         }
 
         [HttpDelete]
         public bool deleteCaster(String id)
         {
+            db.DeleteCasterCart(id);
             return db.DeleteCaster(id);
         }
 
         [HttpDelete]
         public bool deleteProps(String id)
         {
+            db.DeletePropsCart(id);
             return db.DeleteProps(id);
         }
 
