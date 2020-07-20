@@ -115,12 +115,7 @@ namespace TayDuKy.Controllers
         [HttpPost]
         public Boolean addNewPropsCart(string propsId, string quantity, string miseryId)
         {
-            int quantityProps = db.getQttProps(propsId);
-            if(quantityProps > int.Parse(quantity))
-            {
-                return db.AddNewPropsCart(propsId, quantity, miseryId);
-            }
-            return false;
+            return db.AddNewPropsCart(propsId, quantity, miseryId);
         }
     }
 }
