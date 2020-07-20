@@ -113,6 +113,12 @@ namespace TayDuKy.Controllers
         }
 
         [HttpPost]
+        public int getQttProps(string id)
+        {
+            return db.getQttProps(id);
+        }
+
+        [HttpPost]
         public Boolean addNewPropsCart(string propsId, string quantity, string miseryId)
         {
             return db.AddNewPropsCart(propsId, quantity, miseryId);
