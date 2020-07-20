@@ -609,7 +609,7 @@ namespace Database
         public List<History> getAllHistory()
         {
             List<History> result = new List<History>();
-            string SQL = "select * from updateCasterDetail";
+            string SQL = "select b.name,c.name,a.update_time from updateCasterDetail a, Admin b, Caster c where a.adminId=b.id and a.casterId=c.id";
             SqlConnection cnn = new SqlConnection(strConnection);
             SqlCommand cmd = new SqlCommand(SQL, cnn);
             try
@@ -620,10 +620,9 @@ namespace Database
                 {
                     History tmp = new History
                     {
-                        id = reader.GetValue(0).ToString(),
-                        adminId = reader.GetValue(1).ToString(),
-                        casterId = reader.GetValue(2).ToString(),
-                        update_time = reader.GetValue(3).ToString(),
+                        admin = reader.GetValue(0).ToString(),
+                        caster = reader.GetValue(1).ToString(),
+                        update_time = reader.GetValue(2).ToString(),
                     };
                     result.Add(tmp);
                 }
