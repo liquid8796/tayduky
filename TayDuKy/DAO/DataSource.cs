@@ -141,6 +141,8 @@ namespace Database
                 SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
+                    int countCaster = countCasterInMisery(reader.GetValue(0).ToString());
+                    int countProps = countPropsInMisery(reader.GetValue(0).ToString());
                     Kiepnan tmp = new Kiepnan
                     {
                         id = reader.GetValue(0).ToString(),
@@ -150,6 +152,8 @@ namespace Database
                         start = reader.GetValue(4).ToString(),
                         end = reader.GetValue(5).ToString(),
                         record = reader.GetValue(6).ToString(),
+                        numCaster = countCaster.ToString(),
+                        numProps = countProps.ToString(),
                         status = reader.GetValue(7).ToString(),
                     };
                     result.Add(tmp);
@@ -194,6 +198,52 @@ namespace Database
                 throw new Exception(ex.Message);
             }
             return result;
+        }
+
+        public int countCasterInMisery(string id)
+        {
+            int count = 0;
+            string SQL = "select * from CasterCartDetail a, Misery b where b.id=@ID and a.miseryId=b.id";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    count += 1;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return count;
+        }
+
+        public int countPropsInMisery(string id)
+        {
+            int count = 0;
+            string SQL = "select * from PropsCartDetail a, Misery b where b.id=@ID and a.miseryId=b.id";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    count += 1;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return count;
         }
 
         public List<Props> getAllProps()

@@ -14,6 +14,8 @@ namespace TayDuKy.DAO
         public String start { get; set; }
         public String end { get; set; }
         public String record { get; set; }
+        public String numCaster { get; set; }
+        public String numProps { get; set; }
         public String status { get; set; }
         public Kiepnan() { }
 
