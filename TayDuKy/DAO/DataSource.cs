@@ -44,6 +44,31 @@ namespace Database
             }
             return user;
         }
+
+        public string checkLoginCaster(string email, string password)
+        {
+            string user = "";
+            string SQL = "select * from Caster where email=@Email and password=@Pass";
+            SqlConnection cnn = new SqlConnection(strConnection);
+            SqlCommand cmd = new SqlCommand(SQL, cnn);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@Pass", password);
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    user = reader.GetValue(2).ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return user;
+        }
+
         public bool AddNewProps(string id, string name, string image, string desc, string quantity, string status)
         {
             bool result;

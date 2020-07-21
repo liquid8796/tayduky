@@ -26,6 +26,17 @@ namespace TayDuKy.Controllers
         }
 
         [HttpPost]
+        public HttpResponseMessage checkLoginCaster(string email, string password)
+        {
+            string user = db.checkLoginCaster(email, password);
+            if (!user.Equals(""))
+            {
+                return Request.CreateResponse<string>(HttpStatusCode.OK, user);
+            }
+            return Request.CreateResponse<string>(HttpStatusCode.BadRequest, "error");
+        }
+
+        [HttpPost]
         public Boolean addNewProps(string id, string name, string image, string desc, string quantity, string status)
         {
             bool result = db.AddNewProps(id, name, image, desc, quantity, status);
