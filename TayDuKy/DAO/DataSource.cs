@@ -59,7 +59,7 @@ namespace Database
                 SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
-                    user = reader.GetValue(2).ToString();
+                    user = reader.GetValue(0).ToString();
                 }
             }
             catch (SqlException ex)
